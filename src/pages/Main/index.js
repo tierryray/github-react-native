@@ -18,6 +18,8 @@ import {
   Bio,
   ProfileButton,
   ProfileButtonText,
+  NoUsersBox,
+  NoUsers,
 } from './styles';
 
 export default class Main extends Component {
@@ -104,6 +106,14 @@ export default class Main extends Component {
             )}
           </SubmitButton>
         </Form>
+
+        {!users.length > 0 && (
+          <NoUsersBox>
+            <Icon name="search" size={56} color="#ccc" />
+            <NoUsers>Você ainda não adicionou nenhum usuário.</NoUsers>
+          </NoUsersBox>
+        )}
+
         <List
           data={users}
           keyExtractor={user => user.login}
